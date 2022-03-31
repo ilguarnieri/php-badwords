@@ -4,8 +4,14 @@
     $text = 'Non importa che cosa hai fatto o che cosa eri. Se esci da qui... combatti e combatti per uccidere. Se vuoi restare, va bene. Manderò tuo fratello a cercarti ma se uscirai da quella porta... tu sei un Avenger.';
     //lunghezza testo
     $length_text = strlen($text);
+
     //GET parola da censurare
-    $bad_word = $_GET['badword'];
+    if(isset($_GET['badword'])){
+        $bad_word = $_GET['badword'];
+    } else {
+        $bad_word = null;
+    }
+
     //testo modificato
     $mod_text = str_replace([$bad_word, ucwords($bad_word)], '***', $text);
     //lunghezza testo modificato
